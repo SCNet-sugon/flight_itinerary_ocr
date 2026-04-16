@@ -1,7 +1,7 @@
 ---
 name: flight_itinerary_ocr
-description: 支持从航空运输电子客票行程单中提取旅客姓名、身份证号、航班号、起降地、起降时间、票价、燃油附加费、民航发展基金及电子客票号码
-version: 1.0.2
+description: 支持从航空运输电子客票行程单中提取旅客姓名、身份证号、航班号、起降地、起降时间、票价、燃油附加费、民航发展基金及电子客票号码等信息识别并提取出来
+version: 1.0.3
 author: SCNet
 license: MIT
 tags:
@@ -11,7 +11,8 @@ tags:
   - 文字提取
 required_env_vars:
   - SCNET_API_KEY
-  - SCNET_API_BASE  # 可选，但有默认值
+optional_env_vars:
+  - SCNET_API_BASE
 primary_credential: SCNET_API_KEY
 dependencies:
   - python3
@@ -79,7 +80,7 @@ Token 过期后调用会返回 401 或 403 错误。更新方法：重新申请 
 ### 命令行调用示例
 
 ```bash
-   python .claude/skills/sugon-scnet-ocr/scripts/main.py VAT_INVOICE /path/to/invoice.jpg
+   python .claude/skills/flight_itinerary_ocr/scripts/main.py AIRPORT_TICKET /path/to/invoice.jpg
 ```
 
 ### 在 AI 对话中使用
